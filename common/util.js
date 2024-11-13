@@ -11,8 +11,8 @@ export const brandObject = {
 }
 
 export const productGradeObject = {
-  'automotive': '汽车级',
-  'commercial': '普通商用级',
+  automotive: '汽车级',
+  commercial: '普通商用级',
   'safety standard': '高性能安全规格级'
 }
 

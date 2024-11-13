@@ -2,11 +2,12 @@ import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
 
 export default createConfigForNuxt({
   features: {
-    stylistic: true, // <---
-  },
-}).append({
-  rules: {
-    'no-console': 'off',
-    // 'comma-dangle': ['error', 'never'],
-  },
+    stylistic: {
+      semi: false,
+      commaDangle: 'never',
+      arrowParens: true,
+      quoteProps: 'as-needed'
+    },
+    tooling: true
+  }
 })
