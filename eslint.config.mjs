@@ -4,9 +4,9 @@ export default createConfigForNuxt({
   features: {
     stylistic: true, // <---
   },
-  files: ['**/*.ts', '**/*.tsx', '*.vue'],
+}).append({
   rules: {
-    'no-console': 'off', // allow console.log in TypeScript files
-    'comma-dangle': 0,
+    'no-console': 'off',
+    // 'comma-dangle': ['error', 'never'],
   },
 })
