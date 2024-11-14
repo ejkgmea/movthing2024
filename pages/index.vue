@@ -64,29 +64,29 @@ import CenterCard from '~/components/CenterCard.vue'
 
 const productsList = reactive([
   {
-    name: '贴片电容',
+    name: 'Capacitors',
     img: '/images/index/001.jpg',
-    to: ''
+    to: '/products/capacitors'
   },
   {
-    name: '贴片电感',
+    name: 'Inductors',
     img: '/images/index/002.jpg',
-    to: ''
+    to: '/products/inductors'
   },
   {
-    name: '滤波器',
+    name: 'Filters',
     img: '/images/index/003.jpg',
-    to: ''
+    to: '/products/filters'
   },
   {
-    name: '蜂鸣器',
+    name: 'Beads',
     img: '/images/index/004.png',
-    to: ''
+    to: '/products/beads'
   }
 ])
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
 .bg-banner {
   background-image: url('public/images/banner.jpg');
   background-repeat: no-repeat;

@@ -7,7 +7,7 @@ module.exports = {
     contact: '聯系我們'
   },
   banner: {
-    title: '羽璠電子',
+    title: '慕心科技',
     partner: '您最好的采購夥伴'
   },
   about: {

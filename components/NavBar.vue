@@ -6,9 +6,10 @@
     >
       <template #start>
         <Image
-          src="images/logo.png"
+          src="/images/logo.png"
           alt="Image"
           width="50"
+          @click="navigateTo('/')"
         />
       </template>
       <template #item="{ item, props, hasSubmenu, root }">
@@ -16,6 +17,7 @@
           v-ripple
           class="flex items-center"
           v-bind="props.action"
+          @click="navigateTo(item.to)"
         >
           <span>{{ item.label }}</span>
           <i
@@ -47,34 +49,44 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import CenterCard from '@/components/CenterCard.vue'
+
+const router = useRouter()
 
 const items = ref([
   {
-    label: 'Home'
+    label: 'Home',
+    to: '/'
   },
   {
     label: 'Products',
     items: [
       {
-        label: '贴片电容'
+        label: 'Capacitors',
+        to: '/products/capacitors'
       },
       {
-        label: '贴片电感'
+        label: 'Inductors',
+        to: '/products/inductors'
       },
       {
-        label: '滤波器'
+        label: 'Filters',
+        to: '/products/filters'
       },
       {
-        label: '蜂鸣器'
+        label: 'Beads',
+        to: '/products/beads'
       }
     ]
   },
   {
-    label: 'About Us'
+    label: 'About Us',
+    to: '/about'
   },
   {
-    label: 'Contact Us'
+    label: 'Contact Us',
+    to: '/contact'
   }
 ])
 
@@ -83,5 +95,11 @@ const themeMode = ref('pi-sun')
 function toggleDarkMode() {
   themeMode.value = themeMode.value === 'pi-sun' ? 'pi-moon' : 'pi-sun'
   document.documentElement.classList.toggle('my-app-dark')
+}
+
+function navigateTo(path) {
+  if (path) {
+    router.push(path) // 使用 router.push 进行页面跳转
+  }
 }
 </script>
