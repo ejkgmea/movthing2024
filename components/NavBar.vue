@@ -51,10 +51,10 @@ import CenterCard from '@/components/CenterCard.vue'
 
 const items = ref([
   {
-    label: '主页'
+    label: 'Home'
   },
   {
-    label: '产品中心',
+    label: 'Products',
     items: [
       {
         label: '贴片电容'
@@ -71,10 +71,10 @@ const items = ref([
     ]
   },
   {
-    label: '关于我们'
+    label: 'About Us'
   },
   {
-    label: '联系我们'
+    label: 'Contact Us'
   }
 ])
 

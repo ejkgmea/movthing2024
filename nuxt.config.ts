@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import Material from '@primevue/themes/Material'
+import Aura from '@primevue/themes/Aura'
 
 export default defineNuxtConfig({
   modules: [
@@ -22,10 +22,9 @@ export default defineNuxtConfig({
   primevue: {
     options: {
       theme: {
-        preset: Material,
+        preset: Aura,
         options: {
           darkModeSelector: '.my-app-dark', // 默认值是 'system'
-          // cssLayer: false
           cssLayer: {
             name: 'primevue',
             order: 'tailwind-base, primevue, tailwind-utilities'
