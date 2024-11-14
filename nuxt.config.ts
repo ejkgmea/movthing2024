@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import Aura from '@primevue/themes/aura'
+import Material from '@primevue/themes/Material'
 
 export default defineNuxtConfig({
   modules: [
@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: true },
   css: [
-    '@/assets/css/main.scss' // 引入你的 SCSS 文件
+    '@/assets/css/main.css',
+    'primeicons/primeicons.css'
   ],
   compatibilityDate: '2024-04-03',
   postcss: {
@@ -20,13 +21,15 @@ export default defineNuxtConfig({
   },
   primevue: {
     options: {
-      unstyled: false, // 是否要使用这个主题样式
       theme: {
-        preset: Aura,
+        preset: Material,
         options: {
-          prefix: 'p',
           darkModeSelector: '.my-app-dark', // 默认值是 'system'
-          cssLayer: false
+          // cssLayer: false
+          cssLayer: {
+            name: 'primevue',
+            order: 'tailwind-base, primevue, tailwind-utilities'
+          }
         }
       }
     }
