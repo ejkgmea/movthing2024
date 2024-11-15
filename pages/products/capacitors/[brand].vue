@@ -34,9 +34,9 @@ definePageMeta({
 
 const brandObject = {
   tdk: 'TDK Corporation',
-  murata: 'Murata',
-  taiyo: 'Taiyo',
-  samsung: 'Samsung',
+  murata: 'Murata', // 村田
+  taiyo: 'Taiyo', // 太诱
+  samsung: 'Samsung', // 三星
   pdc: 'PDC', // 信昌
   walsin: 'Walsin', // 华科
   yageo: 'Yageo', // 国巨
