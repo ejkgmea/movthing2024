@@ -37,7 +37,7 @@ const brandObject = {
   murata: 'Murata',
   taiyo: 'Taiyo',
   samsung: 'Samsung',
-  pdc: 'PDC',
+  pdc: 'PDC', // 信昌
   walsin: 'Walsin', // 华科
   yageo: 'Yageo', // 国巨
   hec: 'HEC', // 禾伸堂
