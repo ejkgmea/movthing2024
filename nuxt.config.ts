@@ -6,10 +6,11 @@ export default defineNuxtConfig({
   modules: [
     '@primevue/nuxt-module',
     '@nuxt/eslint'
+    // '@nuxt/content'
   ],
   devtools: { enabled: true },
   css: [
-    '@/assets/css/main.css',
+    '@/utils/css/main.css',
     'primeicons/primeicons.css'
   ],
   compatibilityDate: '2024-04-03',
@@ -20,6 +21,7 @@ export default defineNuxtConfig({
     }
   },
   primevue: {
+    autoImport: true,
     options: {
       theme: {
         preset: Aura,

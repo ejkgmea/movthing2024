@@ -22,9 +22,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import NavBar from '~/components/NavBar.vue'
-import FooterBar from '~/components/FooterBar.vue'
-import CenterCard from '~/components/CenterCard.vue'
+import NavBar from '@/components/NavBar.vue'
+import FooterBar from '@/components/FooterBar.vue'
+import CenterCard from '@/components/CenterCard.vue'
 import PanelMenuBar from '@/components/PanelMenuBar.vue'
 
 const items = ref([
