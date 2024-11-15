@@ -1,9 +1,19 @@
 <template>
   <CenterCard>
     <Menubar
-      class="relative flex items-center justify-between h-16 border-none"
+      class="relative flex items-center justify-between h-16 border-none bg-transparent"
       :model="items"
     >
+      <template #button>
+        <Button
+          class="block md:hidden"
+          :icon="`pi pi-bars`"
+          size="small"
+          variant="text"
+          severity="secondary"
+          @click="toggleDrawer()"
+        />
+      </template>
       <template #start>
         <Image
           src="/images/logo.png"
@@ -17,7 +27,7 @@
           v-ripple
           class="flex items-center"
           v-bind="props.action"
-          @click="navigateTo(item.to)"
+          @click="handleMenuClick(item)"
         >
           <span>{{ item.label }}</span>
           <i
@@ -44,6 +54,77 @@
         </div>
       </template>
     </Menubar>
+
+    <!-- PrimeVue Drawer -->
+    <Drawer v-model:visible="drawerVisible">
+      <template #container="{ closeCallback }">
+        <div class="flex flex-col h-full">
+          <div class="flex items-center justify-between px-6 pt-4 shrink-0">
+            <span class="inline-flex items-center gap-2">
+              <Image
+                src="/images/logo.png"
+                alt="Image"
+                width="50"
+                @click="navigateTo('/')"
+              />
+              <span class="font-semibold text-xl">Movthing Tech</span>
+            </span>
+            <span>
+              <Button
+                type="button"
+                size="small"
+                variant="text"
+                severity="secondary"
+                icon="pi pi-times"
+                rounded
+                @click="closeCallback"
+              />
+            </span>
+          </div>
+
+          <!-- PanelMenu Component -->
+          <div class="PanelMenu-wrap">
+            <PanelMenu
+              :model="items"
+              class="w-full md:w-80"
+            >
+              <template
+                #item="{ item }"
+              >
+                <router-link
+                  v-if="item.to"
+                  v-slot="{ navigate }"
+                  :to="item.to"
+                  custom
+                >
+                  <a
+                    v-ripple
+                    class="flex items-center cursor-pointer px-4 py-2"
+                    @click="() => { navigate(); toggleDrawer(); }"
+                  >
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                  </a>
+                </router-link>
+                <a
+                  v-else
+                  v-ripple
+                  class="flex items-center cursor-pointer px-4 py-2"
+                  :href="item.to"
+                >
+                  <span :class="item.icon" />
+                  <span class="ml-2">{{ item.label }}</span>
+                  <span
+                    v-if="item.items"
+                    class="pi pi-angle-down ml-auto"
+                  />
+                </a>
+              </template>
+            </PanelMenu>
+          </div>
+        </div>
+      </template>
+    </Drawer>
   </CenterCard>
 </template>
 
@@ -91,6 +172,17 @@ const items = ref([
 ])
 
 const themeMode = ref('pi-sun')
+const drawerVisible = ref(false)
+
+function toggleDrawer() {
+  drawerVisible.value = !drawerVisible.value
+}
+
+function handleMenuClick(item) {
+  if (item.to) {
+    navigateTo(item.to)
+  }
+}
 
 function toggleDarkMode() {
   themeMode.value = themeMode.value === 'pi-sun' ? 'pi-moon' : 'pi-sun'
@@ -99,7 +191,13 @@ function toggleDarkMode() {
 
 function navigateTo(path) {
   if (path) {
-    router.push(path) // 使用 router.push 进行页面跳转
+    router.push(path) // Use router.push for navigation
   }
 }
 </script>
+
+<style scoped lang="less">
+.PanelMenu-wrap :deep(.p-panelmenu-panel) {
+  border: none;
+}
+</style>

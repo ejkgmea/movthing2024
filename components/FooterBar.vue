@@ -1,7 +1,7 @@
 <template>
   <CenterCard>
     <div class="pt-4 pb-8 text-center">
-      版权所有 &copy; {{ new Date().getFullYear() }} <strong>深圳市慕心科技有限公司</strong>
+      Copyright &copy; {{ new Date().getFullYear() }} <strong>Shenzhen Movthing Technology Co.,LTD</strong>
     </div>
   </CenterCard>
 </template>

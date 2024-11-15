@@ -1,11 +1,11 @@
 <template>
-  <CenterCard>
-    <div>
-      Inductors
-    </div>
-  </CenterCard>
+  <div>
+    Inductors
+  </div>
 </template>
 
 <script setup>
-import CenterCard from '~/components/CenterCard.vue'
+definePageMeta({
+  layout: 'products'
+})
 </script>

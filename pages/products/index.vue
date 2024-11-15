@@ -2,17 +2,14 @@
   <div />
 </template>
 
-<script>
-import { onBeforeMount } from 'vue'
-import { useRouter } from 'vue-router'
+<script setup>
+definePageMeta({
+  layout: 'products'
+})
 
-export default {
-  setup() {
-    const router = useRouter()
+const router = useRouter()
 
-    onBeforeMount(() => {
-      router.push('/products/capacitors')
-    })
-  }
-}
+onBeforeMount(() => {
+  router.push('/products/capacitors')
+})
 </script>
