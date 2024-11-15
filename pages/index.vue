@@ -33,7 +33,10 @@
           <template
             #title
           >
-            <h3 class="text-center">
+            <h3
+              class="text-center cursor-pointer"
+              @click="navigateTo(item.to)"
+            >
               {{ item.name }}
             </h3>
           </template>
@@ -60,7 +63,10 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import CenterCard from '~/components/CenterCard.vue'
+
+const router = useRouter()
 
 const productsList = reactive([
   {
@@ -84,6 +90,12 @@ const productsList = reactive([
     to: '/products/beads'
   }
 ])
+
+function navigateTo(path) {
+  if (path) {
+    router.push(path) // 使用 router.push 进行页面跳转
+  }
+}
 </script>
 
 <style scoped lang="less">
