@@ -84,43 +84,10 @@
 
           <!-- PanelMenu Component -->
           <div class="PanelMenu-wrap">
-            <PanelMenu
-              :model="items"
-              class="w-full md:w-80"
-            >
-              <template
-                #item="{ item }"
-              >
-                <router-link
-                  v-if="item.to"
-                  v-slot="{ navigate }"
-                  :to="item.to"
-                  custom
-                >
-                  <a
-                    v-ripple
-                    class="flex items-center cursor-pointer px-4 py-2"
-                    @click="() => { navigate(); toggleDrawer(); }"
-                  >
-                    <span :class="item.icon" />
-                    <span class="ml-2">{{ item.label }}</span>
-                  </a>
-                </router-link>
-                <a
-                  v-else
-                  v-ripple
-                  class="flex items-center cursor-pointer px-4 py-2"
-                  :href="item.to"
-                >
-                  <span :class="item.icon" />
-                  <span class="ml-2">{{ item.label }}</span>
-                  <span
-                    v-if="item.items"
-                    class="pi pi-angle-down ml-auto"
-                  />
-                </a>
-              </template>
-            </PanelMenu>
+            <PanelMenuBar
+              :items
+              @toggle="toggleDrawer()"
+            />
           </div>
         </div>
       </template>
@@ -132,6 +99,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import CenterCard from '@/components/CenterCard.vue'
+import PanelMenuBar from '@/components/PanelMenuBar.vue'
 
 const router = useRouter()
 
