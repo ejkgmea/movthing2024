@@ -113,7 +113,24 @@ const items = ref([
     items: [
       {
         label: 'Capacitors',
-        to: '/products/capacitors'
+        items: [
+          {
+            label: 'TDK Corporation',
+            to: '/products/capacitors/tdk'
+          },
+          {
+            label: 'Murata',
+            to: '/products/capacitors/murata'
+          },
+          {
+            label: 'Taiyo',
+            to: '/products/capacitors/taiyo'
+          },
+          {
+            label: 'SAMSUNG',
+            to: '/products/capacitors/samsung'
+          }
+        ]
       },
       {
         label: 'Inductors',

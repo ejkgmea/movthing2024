@@ -1,39 +1,12 @@
 <template>
   <div>
-    <!-- <div class="card bg-transparent border-b">
-      <Breadcrumb
-        :home="home"
-        :model="items"
-      >
-        <template #item="{ item, props }">
-          <router-link
-            v-if="item.route"
-            v-slot="{ href, navigate }"
-            :to="item.route"
-            custom
-          >
-            <a
-              :href="href"
-              v-bind="props.action"
-              @click="navigate"
-            >
-              <span :class="[item.icon, 'text-color']" />
-              <span class="font-semibold">{{ item.label }}</span>
-            </a>
-          </router-link>
-          <a
-            v-else
-            :href="item.url"
-            :target="item.target"
-            v-bind="props.action"
-          >
-            <span class="">{{ item.label }}</span>
-          </a>
-        </template>
-      </Breadcrumb>
-    </div> -->
-
     <BreadcrumbBar :items />
+
+    <h1>{{ brand }}</h1>
+
+    <h1>普通级</h1>
+    <h1>车规级</h1>
+    <h1>安规级</h1>
 
     <div class="content-text">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam est perspiciatis enim tenetur, excepturi facere eveniet esse iusto necessitatibus? Sunt nostrum aut placeat numquam iste, cum ut consequatur fuga nesciunt.</p>
@@ -59,8 +32,23 @@ definePageMeta({
   layout: 'products'
 })
 
+const brandObject = {
+  tdk: 'TDK Corporation',
+  murata: 'Murata',
+  taiyo: 'Taiyo',
+  samsung: 'Samsung',
+  pdc: 'PDC',
+  walsin: 'Walsin', // 华科
+  yageo: 'Yageo', // 国巨
+  hec: 'HEC', // 禾伸堂
+  fh: 'FH' // 风华
+}
+
+const { brand } = useRoute().params
+
 const items = ref([
   { label: 'Products' },
-  { label: 'Capacitors', to: '/products/capacitors' }
+  { label: 'Capacitors' },
+  { label: brandObject[brand], to: `/products/capacitors/${brand}` }
 ])
 </script>

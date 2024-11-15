@@ -28,10 +28,54 @@ import CenterCard from '@/components/CenterCard.vue'
 import PanelMenuBar from '@/components/PanelMenuBar.vue'
 
 const items = ref([
-  { label: 'Capacitors', to: '/products/capacitors' },
-  { label: 'Inductors', to: '/products/inductors' },
-  { label: 'Filters', to: '/products/filters' },
-  { label: 'Beads', to: '/products/beads' }
+  {
+    label: 'Capacitors',
+    items: [
+      {
+        label: 'TDK Corporation',
+        to: '/products/capacitors/tdk'
+      },
+      {
+        label: 'Murata',
+        to: '/products/capacitors/murata'
+      },
+      {
+        label: 'Taiyo',
+        to: '/products/capacitors/taiyo'
+      },
+      {
+        label: 'Samsung',
+        to: '/products/capacitors/samsung'
+      },
+      {
+        label: 'PDC',
+        to: '/products/capacitors/pdc'
+      }, {
+        label: 'Walsin',
+        to: '/products/capacitors/walsin'
+      },
+      {
+        label: 'HEC',
+        to: '/products/capacitors/hec'
+      },
+      {
+        label: 'FH',
+        to: '/products/capacitors/fh'
+      }
+    ]
+  },
+  {
+    label: 'Inductors',
+    to: '/products/inductors'
+  },
+  {
+    label: 'Filters',
+    to: '/products/filters'
+  },
+  {
+    label: 'Beads',
+    to: '/products/beads'
+  }
 ])
 </script>
 

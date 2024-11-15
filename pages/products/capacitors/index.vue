@@ -3,10 +3,6 @@
 </template>
 
 <script setup>
-definePageMeta({
-  layout: 'products'
-})
-
 const router = useRouter()
 
 onBeforeMount(() => {

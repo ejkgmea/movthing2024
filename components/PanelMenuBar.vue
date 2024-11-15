@@ -15,7 +15,7 @@
           <a
             v-ripple
             class="flex items-center cursor-pointer px-4 py-2"
-            @click="() => { navigate(); emitToggleClick(); }"
+            @click.prevent="() => { navigate(); emitToggleClick(); }"
           >
             <span :class="item.icon" />
             <span class="ml-2">{{ item.label }}</span>

@@ -14,6 +14,6 @@ definePageMeta({
 
 const items = ref([
   { label: 'Products' },
-  { label: 'Capacitors', to: '/products/beads' }
+  { label: 'Beads', to: '/products/beads' }
 ])
 </script>
